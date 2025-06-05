@@ -39,7 +39,7 @@ import rclpy
 from rclpy.node import Node
 import numpy as np
 from rclpy.clock import Clock
-from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy, QoSDurabilityPolicy
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy, DurabilityPolicy
 
 from px4_msgs.msg import OffboardControlMode
 from px4_msgs.msg import TrajectorySetpoint
@@ -57,7 +57,7 @@ class OffboardControl(Node):
         super().__init__('minimal_publisher')
         qos_profile = QoSProfile(
             reliability=QoSReliabilityPolicy.BEST_EFFORT,
-            durability=QoSDurabilityPolicy.TRANSIENT_LOCAL,
+            durability=DurabilityPolicy.VOLATILE, # original was .TRANSIENT_LOCAL
             history=QoSHistoryPolicy.KEEP_LAST,
             depth=1
         )

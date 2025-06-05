@@ -5,7 +5,7 @@ import geometry_msgs.msg
 import rclpy
 import std_msgs.msg
 
-from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy, QoSDurabilityPolicy
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy, DurabilityPolicy
 
 if sys.platform == 'win32':
     import msvcrt
@@ -93,7 +93,7 @@ def main():
 
     qos_profile = QoSProfile(
         reliability=QoSReliabilityPolicy.BEST_EFFORT,
-        durability=QoSDurabilityPolicy.TRANSIENT_LOCAL,
+        durability=DurabilityPolicy.VOLATILE, # original was .TRANSIENT_LOCAL
         history=QoSHistoryPolicy.KEEP_LAST,
         depth=10
     )
