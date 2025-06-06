@@ -64,7 +64,6 @@ def vector2PoseMsg(frame_id, position, attitude):
     return pose_msg
 
 class PX4Visualizer(Node):
-
     def __init__(self):
         super().__init__('px4_visualizer')
 
