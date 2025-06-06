@@ -108,7 +108,14 @@ git clone https://github.com/ARK-Electronics/ROS2_PX4_Offboard_Example.git
 
 Run this code to clone the repo
 
+#### Extra packages needed
 
+I couldn't get this to work in jazzy without also including px4_msgs_old and the translation_node packages. To include copy these packages complete the following before building the workspace:
+
+```
+cd ~/ros2_px4_offboard_example_ws
+~/PX4-Autopilot/Tools/copy_to_ros_ws.sh .
+```
 
 ### Building the Workspace
 The two packages in this workspace are px4_msgs and px4_offboard. px4_offboard is a ROS2 package that contains the code for the offboard control node that we will implement. It lives inside the ROS2_PX4_Offboard_Example directory.
